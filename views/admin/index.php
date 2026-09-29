@@ -1,7 +1,12 @@
 <?php
-// Admin Dashboard
-// TODO: Tampilkan statistik, daftar user, dan kelola kategori
+require_once __DIR__ . '/../../includes/auth.php';
+require_login();
+if (!isset($_SESSION['user']['role']) || $_SESSION['user']['role'] !== 'admin') {
+    http_response_code(403);
+    exit('403 Forbidden');
+}
 ?>
+<h1>Admin Dashboard</h1>
 <!DOCTYPE html>
 <html lang="en">
 <head>
