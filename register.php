@@ -1,6 +1,5 @@
 <?php
-// Form Register
-// TODO: Buat form register yang mengirim data ke actions/do_register.php
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +9,12 @@
 </head>
 <body>
     <h2>Register</h2>
+
+    <?php if (isset($_SESSION['error'])): ?>
+        <p style="color: red;"><?= htmlspecialchars($_SESSION['error']); ?></p>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+
     <form action="/actions/do_register.php" method="POST">
         <div>
             <label>Nama Lengkap:</label>
