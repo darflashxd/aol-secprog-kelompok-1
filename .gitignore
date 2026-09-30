@@ -16,9 +16,9 @@ Thumbs.db
 *.sublime-workspace
 
 # Runtime uploads (keep folder, ignore uploaded images)
-/uploads/avatars/*
-!/uploads/avatars/.gitkeep
-!/uploads/avatars/.htaccess
+/public/uploads/avatars/*
+!/public/uploads/avatars/.gitkeep
+!/public/uploads/avatars/.htaccess
 
 # Docker data files if mapped locally
 *.log

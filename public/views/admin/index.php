@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../includes/auth.php';
+require_once __DIR__ . '/../../../app/includes/auth.php';
 require_login();
 if (!isset($_SESSION['user']['role']) || $_SESSION['user']['role'] !== 'admin') {
     http_response_code(403);

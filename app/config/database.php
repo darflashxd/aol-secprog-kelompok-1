@@ -12,8 +12,10 @@
 $dbHost = getenv('DB_HOST') ?: '127.0.0.1';
 $dbPort = getenv('DB_PORT') ?: '3306';
 $dbName = getenv('DB_NAME') ?: 'aol_secprog';
-$dbUser = getenv('DB_USER') ?: 'secprog_user';
-$dbPass = getenv('DB_PASS') ?: 'secprog_pass123';
+// XAMPP's local MariaDB commonly uses root with no password. Docker overrides
+// these values through the DB_USER and DB_PASS environment variables.
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPass = getenv('DB_PASS') !== false ? getenv('DB_PASS') : '';
 
 $dsn = "mysql:host={$dbHost};port={$dbPort};dbname={$dbName};charset=utf8mb4";
 

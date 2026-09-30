@@ -13,3 +13,8 @@ RUN echo "file_uploads = On" >> /usr/local/etc/php/conf.d/custom.ini \
     && echo "session.use_only_cookies = 1" >> /usr/local/etc/php/conf.d/custom.ini
 
 WORKDIR /var/www/html
+
+# Serve only the public directory; application code stays outside the web root.
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+RUN sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
+    && sed -ri 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
